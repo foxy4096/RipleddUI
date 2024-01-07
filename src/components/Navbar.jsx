@@ -33,7 +33,8 @@ function Navbar() {
             <SearchIcon color={"gray.300"} />
           </InputLeftElement>
           <Input
-            _focus={{ borderColor: "#616161" }}
+            _focus={{ borderColor: "#616161", boxShadow: "none !important" }}
+            _active={{ boxShadow: "none !important"}}
             _hover={{ borderColor: "#616161" }}
             placeholder="Search..."
             borderColor={"#1e1e1e"}
