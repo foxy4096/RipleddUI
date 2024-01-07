@@ -36,6 +36,7 @@ function Navbar() {
             _focus={{ borderColor: "#616161", boxShadow: "none !important" }}
             _active={{ boxShadow: "none !important"}}
             _hover={{ borderColor: "#616161" }}
+            transition={"all 0.2s ease-in-out"}
             placeholder="Search..."
             borderColor={"#1e1e1e"}
             borderWidth={"2px"}
