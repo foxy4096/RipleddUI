@@ -1,56 +1,59 @@
 import {
   Box,
   Button,
+  ButtonGroup,
   Flex,
   Image,
   Input,
   InputGroup,
   InputLeftElement,
-  Stack,
+  Spacer,
 } from "@chakra-ui/react";
-import ripleddDesktopLogo from "../asset/ripledd_logo_light.png";
+import ripleddDesktopLogo from "../asset/ripledd_logo.png";
+import ripleddMobileLogo from "../asset/m_logo_col.png";
 import { SearchIcon } from "@chakra-ui/icons";
 
 function Navbar() {
   return (
-    <Box
-      borderBottom={"1px #141414 solid"}
-      color={"white"}
-      px={30}
-      pt={"5px"}
-      mb={"6px"}
-    >
-      <Flex>
+    <Box px={30} pt={"5px"} mb={"6px"}>
+      <Flex minWidth={"max-content"} alignItems={"center"}>
         <Image
           src={ripleddDesktopLogo}
           w={150}
           objectFit="contain"
           alt="Ripledd Logo"
+          hideBelow={"md"}
         />
-
-        <InputGroup ml={2} mr={["10px", "10px", "10px", "100px"]}>
+        <Image
+          src={ripleddMobileLogo}
+          w={12}
+          hideFrom={"md"}
+          objectFit="contain"
+          alt="Ripledd Logo"
+        />
+        <Spacer hideFrom={["md"]} />
+        <InputGroup mx={2} hideBelow={["md"]} w={"50"}>
+          <Input
+            _focus={{ borderColor: "#9e9e9e", boxShadow: "none !important" }}
+            _active={{ boxShadow: "none !important" }}
+            _hover={{ borderColor: "#9e9e9e" }}
+            transition={"all 0.2s ease-in-out"}
+            placeholder="Search"
+            borderColor={"#f0f0f0"}
+            borderWidth={"2px"}
+            _placeholder={{ color: "#4f4f4f" }}
+          />
           <InputLeftElement pointerEvents={"none"}>
             <SearchIcon color={"gray.300"} />
           </InputLeftElement>
-          <Input
-            _focus={{ borderColor: "#616161", boxShadow: "none !important" }}
-            _active={{ boxShadow: "none !important"}}
-            _hover={{ borderColor: "#616161" }}
-            transition={"all 0.2s ease-in-out"}
-            placeholder="Search..."
-            borderColor={"#1e1e1e"}
-            borderWidth={"2px"}
-            _placeholder={{ color: "#4f4f4f" }}
-            backgroundColor={"#141414"}
-            width={{ base: "100%", md: "50%" }}
-          />
         </InputGroup>
-        <Stack direction={"row"}>
+        <Spacer />
+        <ButtonGroup gap={"2"}>
           <Button colorScheme="blue" variant={"outline"}>
             Log In
           </Button>
           <Button colorScheme="blue">Sign Up</Button>
-        </Stack>
+        </ButtonGroup>
       </Flex>
     </Box>
   );

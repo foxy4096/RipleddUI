@@ -20,7 +20,8 @@ export default function TrendingCard() {
       views: 42,
       user: {
         name: "Valery",
-        avatar: "https://ripledd.com/profile/avatar/19971ad92b7ba4c3d12a34754ee49217029141809532.jpeg",
+        avatar:
+          "https://ripledd.com/profile/avatar/19971ad92b7ba4c3d12a34754ee49217029141809532.jpeg",
       },
     },
     {
@@ -31,7 +32,8 @@ export default function TrendingCard() {
       views: 42,
       user: {
         name: "Cod3vil",
-        avatar: "https://ripledd.com/profile/avatar/00e18f06cc0469b83bd209f36ea72317044550042913.jpeg",
+        avatar:
+          "https://ripledd.com/profile/avatar/00e18f06cc0469b83bd209f36ea72317044550042913.jpeg",
       },
     },
     {
@@ -42,7 +44,8 @@ export default function TrendingCard() {
       views: 42,
       user: {
         name: "SneakPeek",
-        avatar: "https://ripledd.com/profile/avatar/63b3e25924f3ad499cfbb5bf959da617042101114855.jpeg",
+        avatar:
+          "https://ripledd.com/profile/avatar/63b3e25924f3ad499cfbb5bf959da617042101114855.jpeg",
       },
     },
     {
@@ -53,56 +56,49 @@ export default function TrendingCard() {
       views: 42,
       user: {
         name: "Aal_eey",
-        avatar: "https://ripledd.com/profile/avatar/28419ecd8d2e5259debf641acc28be17044624915803.jpeg",
+        avatar:
+          "https://ripledd.com/profile/avatar/28419ecd8d2e5259debf641acc28be17044624915803.jpeg",
       },
     },
   ];
   return (
-    <div>
-      <Center mt={20}>
-        <Flex
-          visibility={{
-            base: "hidden",
-            md: "hidden",
-            lg: "visible",
-            xl: "visible",
-          }}
-          gap={5}
-        >
-          {images.map((image) => (
-            <div key={image.id} style={{ position: "relative" }}>
-              <Box my={-12} mx={2} zIndex={10} position={"relative"}>
-                <Flex gap={2}>
-                  <Avatar
-                    src={image.user.avatar}
-                    rounded={"100%"}
-                    boxSize={10}
-                    position={"relative"}
-                    zIndex={10}
-                    borderColor={"white"}
-                    borderWidth={1}
-                  />
-                  <p>
-                    <Text fontSize={"xs"}>{image.user.name.slice(0, 12)}...</Text>
-                    <Text fontSize={"xx-small"}>Lits: {image.lits} • Views: {image.views}</Text>
-                  </p>
-                </Flex>
-              </Box>
-              <Image
-                src={image.imageUrl}
-                rounded={"lg"}
-                width={"150px"}
-                height={"270px"}
-                objectFit={"cover"}
-                boxShadow={"0px 0px 2px 0px lightgrey"}
-                filter={"auto"}
-                brightness={"60%"}
-                zIndex={9}
-              />
-            </div>
-          ))}
-        </Flex>
-      </Center>
-    </div>
+    <Center mt={20} hideBelow={["lg"]}>
+      <Flex gap={5}>
+        {images.map((image) => (
+          <div key={image.id} style={{ position: "relative" }}>
+            <Box my={-12} mx={2} zIndex={10} position={"relative"}>
+              <Flex gap={2}>
+                <Avatar
+                  src={image.user.avatar}
+                  rounded={"100%"}
+                  boxSize={10}
+                  position={"relative"}
+                  zIndex={10}
+                  borderColor={"white"}
+                  borderWidth={1}
+                />
+                <div>
+                  <Text fontSize={"xs"}>{image.user.name.slice(0, 12)}...</Text>
+                  <Text fontSize={"xx-small"}>
+                    Lits: {image.lits} • Views: {image.views}
+                  </Text>
+                </div>
+              </Flex>
+            </Box>
+            <Image
+              src={image.imageUrl}
+              rounded={"lg"}
+              width={"150px"}
+              height={"270px"}
+              objectFit={"cover"}
+              boxShadow={"0px 0px 2px 0px lightgrey"}
+              filter={"auto"}
+              brightness={"60%"}
+              zIndex={9}
+            />
+          </div>
+        ))}
+      </Flex>
+    </Center>
   );
 }
