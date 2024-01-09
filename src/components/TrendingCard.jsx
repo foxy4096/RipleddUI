@@ -62,7 +62,7 @@ export default function TrendingCard() {
     },
   ];
   return (
-    <Center mt={20} hideBelow={["lg"]}>
+    <Center mt={20} mb={6} hideBelow={["lg"]}>
       <Flex gap={5}>
         {images.map((image) => (
           <div key={image.id} style={{ position: "relative" }}>

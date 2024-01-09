@@ -15,7 +15,15 @@ import { SearchIcon } from "@chakra-ui/icons";
 
 function Navbar() {
   return (
-    <Box px={30} pt={"5px"} mb={"6px"}>
+    <Box
+      px={30}
+      pt={"5px"}
+      mb={"6px"}
+      top={0}
+      position={"static"}
+      boxSize={"full"}
+      pos={"relative"}
+    >
       <Flex minWidth={"max-content"} alignItems={"center"}>
         <Image
           src={ripleddDesktopLogo}

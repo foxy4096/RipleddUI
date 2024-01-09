@@ -7,12 +7,11 @@ function App() {
   return (
     <div>
       <TrendingCard />
-      <br />
-      <Flex wrap={['wrap', 'wrap', 'wrap', 'wrap']} px={[0, 0, 70, 81]} gap={6}>
-        <Box flex={8}>
+      <Flex wrap={"wrap-reverse"} px={[0, 0, 81]} columnGap={6}>
+        <Box flex={8} mt={0}>
           <PostBlock />
         </Box>
-        <Box flex={4}>
+        <Box flex={4} mb={0}>
           <MiniUserCard />
         </Box>
       </Flex>
