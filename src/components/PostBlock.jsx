@@ -33,9 +33,9 @@ import { HiDotsVertical } from "react-icons/hi";
 
 const post = {
   id: 1,
-  content: "Four Fucking Pixels",
+  content: "Very Cool Desert Scene 🏜",
   imageUrl:
-    "https://ripledd.com/posters/76fc99a2d40ff5f7ebb5930f39afa616895937427613.jpeg",
+    "https://images.pexels.com/photos/998646/pexels-photo-998646.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   lits: 5,
   views: 42,
   comments: 4,
@@ -97,7 +97,7 @@ export default function PostBlock() {
         />
       )}
       <CardBody>
-        <Text>{post.content}</Text>
+        <Text fontWeight={500}>{post.content}</Text>
       </CardBody>
       <CardFooter
         justify="space-between"

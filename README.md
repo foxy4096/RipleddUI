@@ -27,3 +27,8 @@ npm run start
 ```
 
 This will launch a local development server where you can view and interact with your Ripledd UI components in real-time.
+
+
+## Screenshot
+
+![Ripledd Component UI](/public/RipleddUIPage.jpeg)
