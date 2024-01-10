@@ -28,15 +28,15 @@ export default function MiniUserCard() {
       height={"min-content"}
       borderRadius={[0, 0, 10, 10]}
       boxShadow={[
-        "0 1px 3px 0 rgba(0, 0, 0, 0.1),0 1px 2px 0 rgba(0, 0, 0, 0.06)",
         "none",
+        "0 1px 3px 0 rgba(0, 0, 0, 0.1),0 1px 2px 0 rgba(0, 0, 0, 0.06)",
       ]}
     >
       <Image src={user.headerImage} w={700} borderTopRadius={"inherit"} />
       <CardBody>
-        <Center mt={[-20, -20, -12, -20]}>
+        <Center mt={[-20, -20, -12, -12, -20]}>
           <Avatar
-            size={["xl", "md", "lg", "2xl"]}
+            size={["xl", "md", "lg", "md", "xl"]}
             border={"3px white solid"}
             name={user.name}
             src={user.avatar}
@@ -50,8 +50,22 @@ export default function MiniUserCard() {
         </Center>
         <Center>
           <Wrap mt={5}>
-            <Button colorScheme="blue">Edit</Button>
-            <Button leftIcon={<FaUser />}>{user.followers}</Button>
+            <Button
+              colorScheme="blue"
+              _mediaDark={{ backgroundColor: "blue.900" }}
+              bgGradient={"linear(to-r, green.400, blue.500)"}
+              _hover={{
+                bgGradient: "linear(to-r, green.500, blue.600)",
+              }}
+            >
+              Follow
+            </Button>
+            {/* <Button colorScheme="blue" _mediaDark={{backgroundColor: 'blue.900'}}>Edit</Button> */}
+            <Button
+              leftIcon={<FaUser />}
+            >
+              {user.followers}
+            </Button>
           </Wrap>
         </Center>
       </CardBody>

@@ -30,6 +30,7 @@ import {
 import { FaFire } from "react-icons/fa";
 
 import { HiDotsVertical } from "react-icons/hi";
+import { useState } from "react";
 
 const post = {
   id: 1,
@@ -50,8 +51,12 @@ const post = {
 };
 
 export default function PostBlock() {
+  const [lits, setLits] = useState(post.lits);
+  const [reposts, setReposts] = useState(post.reposts);
+  const [comments, setComments] = useState(post.comments);
+
   return (
-    <Card borderRadius={[0, 0, 10]} borderWidth={1} borderColor={'gray.200'}>
+    <Card borderRadius={[0, 0, 10]} borderColor={"gray.200"}>
       <CardHeader>
         <Flex spacing="4">
           <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
@@ -91,8 +96,8 @@ export default function PostBlock() {
       {post.imageUrl && (
         <Image
           p={6}
-          borderRadius={"35px"}
           src={post.imageUrl}
+          borderRadius={"35px"}
           alt="Post Image 🖼"
         />
       )}
@@ -106,6 +111,9 @@ export default function PostBlock() {
           "& > button": {
             mx: "12px",
           },
+          "& > button:hover": {
+            mx: "12px",
+          },
         }}
       >
         <Button
@@ -114,26 +122,29 @@ export default function PostBlock() {
           borderColor={"gray.300"}
           borderRadius={"5px"}
           leftIcon={<FaFire color={`${post.hasUserLikes && "#e05846"}`} />}
+          onClick={() => setLits(lits + 1)}
         >
-          {post.lits}
+          {lits}
         </Button>
         <Button
           flex="1"
           variant={["ghost", "outline"]}
           borderColor={"gray.300"}
           borderRadius={"5px"}
+          onClick={() => setReposts(reposts + 1)}
           leftIcon={<RxLoop color={`${post.hasUserLikes && "green"}`} />}
         >
-          {post.reposts}
+          {reposts}
         </Button>
         <Button
           flex="1"
           variant={["ghost", "outline"]}
           borderColor={"gray.300"}
           borderRadius={"5px"}
+          onClick={() => setComments(comments + 1)}
           leftIcon={<FaRegComment />}
         >
-          {post.comments}
+          {comments}
         </Button>
       </CardFooter>
     </Card>

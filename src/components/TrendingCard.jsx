@@ -77,7 +77,7 @@ export default function TrendingCard() {
                   borderColor={"white"}
                   borderWidth={1}
                 />
-                <div>
+                <div style={{ color: "white" }}>
                   <Text fontSize={"xs"}>{image.user.name.slice(0, 12)}...</Text>
                   <Text fontSize={"xx-small"}>
                     Lits: {image.lits} • Views: {image.views}
@@ -86,6 +86,7 @@ export default function TrendingCard() {
               </Flex>
             </Box>
             <Image
+              transition={"all 0.2s ease-in-out"}
               src={image.imageUrl}
               rounded={"lg"}
               width={"150px"}

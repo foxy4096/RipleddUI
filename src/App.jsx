@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <TrendingCard />
-      <Flex wrap={"wrap-reverse"} px={[0, 0, 81]} columnGap={6}>
+      <Flex wrap={"wrap-reverse"} px={[0, 0,20, 20, "16em"]} columnGap={6}>
         <Box flex={8} mt={0}>
           <PostBlock />
         </Box>

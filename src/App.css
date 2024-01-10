@@ -1,0 +1,14 @@
+html>* {
+  transition: "all 0.2s ease-in-out";
+}
+/* body {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+  
+  @media (prefers-color-scheme: light) {
+    body {
+      color: #000000 !important;
+      background-color: #ffffff !important;
+    }
+  } */

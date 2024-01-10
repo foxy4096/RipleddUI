@@ -9,31 +9,45 @@ import {
   InputLeftElement,
   Spacer,
 } from "@chakra-ui/react";
-import ripleddDesktopLogo from "../asset/ripledd_logo.png";
-import ripleddMobileLogo from "../asset/m_logo_col.png";
+import ripleddDesktopLogoLight from "../asset/ripledd_logo.png";
+import ripleddDesktopLogoDark from "../asset/ripledd_logo_dark.png";
+import ripleddMobileLogoLight from "../asset/m_logo_col.png";
 import { SearchIcon } from "@chakra-ui/icons";
+import Toggle from "./Toggle";
 
 function Navbar() {
   return (
     <Box
       px={30}
-      pt={"5px"}
+      py={"5px"}
       mb={"6px"}
       top={0}
       position={"static"}
       boxSize={"full"}
       pos={"relative"}
+      background={"transparent"}
+      boxShadow={'0px 0px 0px 1px #141414'}
     >
       <Flex minWidth={"max-content"} alignItems={"center"}>
         <Image
-          src={ripleddDesktopLogo}
+          src={ripleddDesktopLogoLight}
           w={150}
+          _dark={{ display: "none" }}
           objectFit="contain"
           alt="Ripledd Logo"
           hideBelow={"md"}
         />
         <Image
-          src={ripleddMobileLogo}
+          src={ripleddDesktopLogoDark}
+          w={150}
+          _dark={{ display: "block" }}
+          objectFit="contain"
+          display={"none"}
+          alt="Ripledd Logo"
+          hideBelow={"md"}
+        />
+        <Image
+          src={ripleddMobileLogoLight}
           w={12}
           hideFrom={"md"}
           objectFit="contain"
@@ -57,6 +71,7 @@ function Navbar() {
         </InputGroup>
         <Spacer />
         <ButtonGroup gap={"2"}>
+          <Toggle/>
           <Button colorScheme="blue" variant={"outline"}>
             Log In
           </Button>
