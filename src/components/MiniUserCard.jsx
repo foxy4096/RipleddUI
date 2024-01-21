@@ -49,7 +49,7 @@ export default function MiniUserCard() {
           <Text>@{user.username}</Text>
         </Center>
         <Center>
-          <Wrap mt={5}>
+          <Wrap mt={5} justify={"center"}>
             <Button
               colorScheme="blue"
               _mediaDark={{ backgroundColor: "blue.900" }}
@@ -61,11 +61,7 @@ export default function MiniUserCard() {
               Follow
             </Button>
             {/* <Button colorScheme="blue" _mediaDark={{backgroundColor: 'blue.900'}}>Edit</Button> */}
-            <Button
-              leftIcon={<FaUser />}
-            >
-              {user.followers}
-            </Button>
+            <Button leftIcon={<FaUser />}>{user.followers}</Button>
           </Wrap>
         </Center>
       </CardBody>

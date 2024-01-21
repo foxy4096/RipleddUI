@@ -9,9 +9,10 @@ import {
   InputLeftElement,
   Spacer,
 } from "@chakra-ui/react";
-import ripleddDesktopLogoLight from "../asset/ripledd_logo.png";
+import ripleddDesktopLogoLight from "../asset/ripledd_logo_light.png";
 import ripleddDesktopLogoDark from "../asset/ripledd_logo_dark.png";
-import ripleddMobileLogoLight from "../asset/m_logo_col.png";
+import ripleddMobileLogoLight from "../asset/ripledd_logo_light_mobile.png";
+import ripleddMobileLogoDark from "../asset/ripledd_logo_dark_mobile.png";
 import { SearchIcon } from "@chakra-ui/icons";
 import Toggle from "./Toggle";
 
@@ -26,28 +27,37 @@ function Navbar() {
       boxSize={"full"}
       pos={"relative"}
       background={"transparent"}
-      boxShadow={'0px 0px 0px 1px #141414'}
+      boxShadow={"0px 0px 0px 1px #141414"}
     >
       <Flex minWidth={"max-content"} alignItems={"center"}>
         <Image
           src={ripleddDesktopLogoLight}
           w={150}
           _dark={{ display: "none" }}
+          display={"block"}
           objectFit="contain"
           alt="Ripledd Logo"
           hideBelow={"md"}
         />
+          <Image
+            src={ripleddMobileLogoLight}
+            w={12}
+            _dark={{ display: 'none'}}
+            hideFrom={"md"}
+            objectFit="contain"
+            alt="Ripledd Logo"
+          />
         <Image
           src={ripleddDesktopLogoDark}
           w={150}
-          _dark={{ display: "block" }}
+          _light={{ display: "none" }}
           objectFit="contain"
-          display={"none"}
           alt="Ripledd Logo"
           hideBelow={"md"}
         />
         <Image
-          src={ripleddMobileLogoLight}
+          src={ripleddMobileLogoDark}
+          _light={{display: "none"}}
           w={12}
           hideFrom={"md"}
           objectFit="contain"
@@ -71,7 +81,7 @@ function Navbar() {
         </InputGroup>
         <Spacer />
         <ButtonGroup gap={"2"}>
-          <Toggle/>
+          <Toggle />
           <Button colorScheme="blue" variant={"outline"}>
             Log In
           </Button>
