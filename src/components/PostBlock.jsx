@@ -1,9 +1,9 @@
 import {
-  AddIcon,
-  EditIcon,
-  ExternalLinkIcon,
-  RepeatIcon,
-} from "@chakra-ui/icons";
+  MdOutlineReport,
+  MdDeleteOutline,
+  MdOutlineShare,
+} from "react-icons/md";
+
 import { FaRegComment } from "react-icons/fa";
 
 import { RxLoop } from "react-icons/rx";
@@ -56,11 +56,15 @@ export default function PostBlock() {
   const [comments, setComments] = useState(post.comments);
 
   return (
-    <Card borderRadius={[0, 0, 10]} borderColor={"gray.200"}>
+    <Card borderRadius={[0, 0, 10]}>
       <CardHeader>
         <Flex spacing="4">
           <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
-            <Avatar name={post.user.name} src={post.user.avatar} />
+            <Avatar
+              name={post.user.name}
+              src={post.user.avatar}
+              borderRadius={"10%"}
+            />
 
             <Box>
               <Heading size="sm">{post.user.name}</Heading>
@@ -77,18 +81,9 @@ export default function PostBlock() {
               icon={<HiDotsVertical />}
             />
             <MenuList>
-              <MenuItem icon={<AddIcon />} command="⌘T">
-                New Tab
-              </MenuItem>
-              <MenuItem icon={<ExternalLinkIcon />} command="⌘N">
-                New Window
-              </MenuItem>
-              <MenuItem icon={<RepeatIcon />} command="⌘⇧N">
-                Open Closed Tab
-              </MenuItem>
-              <MenuItem icon={<EditIcon />} command="⌘O">
-                Open File...
-              </MenuItem>
+              <MenuItem icon={<MdOutlineShare />}>Share</MenuItem>
+              <MenuItem icon={<MdOutlineReport />}>Report</MenuItem>
+              <MenuItem icon={<MdDeleteOutline />}>Delete</MenuItem>
             </MenuList>
           </Menu>
         </Flex>

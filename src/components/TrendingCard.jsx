@@ -69,8 +69,9 @@ export default function TrendingCard() {
             <Box my={-12} mx={2} zIndex={10} position={"relative"}>
               <Flex gap={2}>
                 <Avatar
+                 borderRadius={"10%"}
                   src={image.user.avatar}
-                  rounded={"100%"}
+                  rounded={"10%"}
                   boxSize={10}
                   position={"relative"}
                   zIndex={10}

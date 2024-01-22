@@ -8,7 +8,7 @@ function Toggle() {
   return (
     <IconButton
       aria-label="Mode Change"
-      variant="outline"
+      variant="ghost"
       colorScheme="black"
       icon={useColorModeValue(<BsMoon />, <BsSun />)}
       onClick={toggleColorMode}

@@ -1,28 +1,36 @@
+/* eslint-disable react/prop-types */
+import { useState } from "react";
 import {
   Avatar,
   Button,
   Card,
   CardBody,
-  Center,
   Heading,
   Image,
   Text,
   Wrap,
 } from "@chakra-ui/react";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaUserPlus } from "react-icons/fa";
+import { MdOutlineCheck } from "react-icons/md";
 
-const user = {
-  name: "Aditya",
-  username: "foxy4096",
+const tuser = {
+  name: "Valery D.",
+  username: "valerydremov",
+  bio: "Founder of this place",
   verified: true,
   followers: 36,
+  isFollowedByCurrentUser: false,
   joined: "Oct 18, '22",
   headerImage:
-    "https://ripledd.com/profile/banner/13067311266f5f954169ffcf8d3ba217013577734898.jpeg",
-  avatar: "https://avatars.githubusercontent.com/u/54215788?v=4",
+    "https://ripledd.com/profile/banner/e5242c6fae34fe161affad92144e0017041160909791.jpeg",
+  avatar:
+    "https://ripledd.com/profile/avatar/19971ad92b7ba4c3d12a34754ee49217029141809532.jpeg",
 };
 
 export default function MiniUserCard() {
+  const [isFollowedByCurrentUser, setIsFollowedByCurrentUser] = useState(
+    tuser.isFollowedByCurrentUser
+  );
   return (
     <Card
       height={"min-content"}
@@ -32,38 +40,63 @@ export default function MiniUserCard() {
         "0 1px 3px 0 rgba(0, 0, 0, 0.1),0 1px 2px 0 rgba(0, 0, 0, 0.06)",
       ]}
     >
-      <Image src={user.headerImage} w={700} borderTopRadius={"inherit"} />
-      <CardBody>
-        <Center mt={[-20, -20, -12, -12, -20]}>
+      <Image src={tuser.headerImage} w={700} borderTopRadius={"inherit"} />
+      <CardBody padding={"10px"}>
+        <Wrap>
           <Avatar
-            size={["xl", "md", "lg", "md", "xl"]}
+            mt={"-7"}
+            boxSize={"80px"}
+            name={tuser.name}
+            borderRadius={"10px"}
+            bg={'black'}
+            src={tuser.avatar}
             border={"3px white solid"}
-            name={user.name}
-            src={user.avatar}
+            _dark={{
+              border: "3px #070707 solid",
+            }}
           />
-        </Center>
-        <Center>
-          <Heading size={["sm", "lg"]}>{user.name}</Heading>
-        </Center>
-        <Center>
-          <Text>@{user.username}</Text>
-        </Center>
-        <Center>
-          <Wrap mt={5} justify={"center"}>
+          <div>
+            <Heading size={["sm", "md"]}>
+              <Wrap>{tuser.name}</Wrap>
+            </Heading>
+            <Text color={"blue.300"}>@{tuser.username}</Text>
+          </div>
+        </Wrap>
+        <Text fontSize={"sm"} mt={2}>
+          {tuser.bio}
+        </Text>
+        <Wrap mt={3}>
+          {isFollowedByCurrentUser ? (
+            <Button
+              rightIcon={<MdOutlineCheck />}
+              variant={'outline'}
+              colorScheme="green"
+              onClick={() => {
+                setIsFollowedByCurrentUser(false);
+              }}
+            >
+              Following
+            </Button>
+          ) : (
             <Button
               colorScheme="blue"
-              _mediaDark={{ backgroundColor: "blue.900" }}
+              rightIcon={<FaUserPlus />}
+              _dark={{ color: "black" }}
               bgGradient={"linear(to-r, green.400, blue.500)"}
               _hover={{
                 bgGradient: "linear(to-r, green.500, blue.600)",
               }}
+              onClick={() => {
+                setIsFollowedByCurrentUser(true);
+              }}
             >
               Follow
             </Button>
-            {/* <Button colorScheme="blue" _mediaDark={{backgroundColor: 'blue.900'}}>Edit</Button> */}
-            <Button leftIcon={<FaUser />}>{user.followers}</Button>
-          </Wrap>
-        </Center>
+          )}
+          <Button leftIcon={<FaUser />} variant={"outline"}>
+            {tuser.followers}
+          </Button>
+        </Wrap>
       </CardBody>
     </Card>
   );
