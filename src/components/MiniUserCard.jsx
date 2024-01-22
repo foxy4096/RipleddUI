@@ -48,7 +48,7 @@ export default function MiniUserCard() {
             boxSize={"80px"}
             name={tuser.name}
             borderRadius={"10px"}
-            bg={'black'}
+            bg={"black"}
             src={tuser.avatar}
             border={"3px white solid"}
             _dark={{
@@ -57,7 +57,13 @@ export default function MiniUserCard() {
           />
           <div>
             <Heading size={["sm", "md"]}>
-              <Wrap>{tuser.name}</Wrap>
+              <Wrap>
+                {tuser.name}
+                <Image
+                  src="https://ripledd.com/img/verified.png"
+                  boxSize={"5"}
+                />
+              </Wrap>
             </Heading>
             <Text color={"blue.300"}>@{tuser.username}</Text>
           </div>
@@ -69,7 +75,7 @@ export default function MiniUserCard() {
           {isFollowedByCurrentUser ? (
             <Button
               rightIcon={<MdOutlineCheck />}
-              variant={'outline'}
+              variant={"outline"}
               colorScheme="green"
               onClick={() => {
                 setIsFollowedByCurrentUser(false);
@@ -82,9 +88,9 @@ export default function MiniUserCard() {
               colorScheme="blue"
               rightIcon={<FaUserPlus />}
               _dark={{ color: "black" }}
-              bgGradient={"linear(to-r, green.400, blue.500)"}
+              bgGradient={"linear(to-r, #fd4ba4, #9a87f4, #67c8ff, #7dffc1)"}
               _hover={{
-                bgGradient: "linear(to-r, green.500, blue.600)",
+                bgGradient: "linear(to-r, #fd4ba6, #9a87f9, #67c8f6, #7affc6)",
               }}
               onClick={() => {
                 setIsFollowedByCurrentUser(true);

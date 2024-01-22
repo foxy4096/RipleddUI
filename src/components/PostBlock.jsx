@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   MdOutlineReport,
   MdDeleteOutline,
@@ -7,6 +8,7 @@ import {
 import { FaRegComment } from "react-icons/fa";
 
 import { RxLoop } from "react-icons/rx";
+import { Prose } from "@nikolovlazar/chakra-ui-prose";
 
 import {
   Avatar,
@@ -26,37 +28,21 @@ import {
   MenuItem,
   MenuList,
   Text,
+  Wrap,
 } from "@chakra-ui/react";
 import { FaFire } from "react-icons/fa";
 
 import { HiDotsVertical } from "react-icons/hi";
 import { useState } from "react";
+import { Remark } from "react-remark";
 
-const post = {
-  id: 1,
-  content: "Very Cool Desert Scene 🏜",
-  imageUrl:
-    "https://images.pexels.com/photos/998646/pexels-photo-998646.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  lits: 5,
-  views: 42,
-  comments: 4,
-  reposts: 7,
-  user: {
-    name: "Aditya Priyadarshi",
-    username: "foxy4096",
-    avatar: "https://avatars.githubusercontent.com/u/54215788?v=4",
-  },
-  hasUserLikes: true,
-  hasUserReposted: true,
-};
-
-export default function PostBlock() {
+export default function PostBlock({ post }) {
   const [lits, setLits] = useState(post.lits);
   const [reposts, setReposts] = useState(post.reposts);
   const [comments, setComments] = useState(post.comments);
 
   return (
-    <Card borderRadius={[0, 0, 10]}>
+    <Card borderRadius={[0, 0, 10]} mb={["0", "3"]}>
       <CardHeader>
         <Flex spacing="4">
           <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
@@ -67,7 +53,15 @@ export default function PostBlock() {
             />
 
             <Box>
-              <Heading size="sm">{post.user.name}</Heading>
+              <Heading size="sm">
+                <Wrap>
+                  {post.user.name}{" "}
+                  <Image
+                    src="https://ripledd.com/img/verified-contributor.png"
+                    boxSize={"5"}
+                  />
+                </Wrap>
+              </Heading>
               <Text fontSize={"smaller"}>
                 <Link color={"blue.500"}>@{post.user.username}</Link>
               </Text>
@@ -97,7 +91,11 @@ export default function PostBlock() {
         />
       )}
       <CardBody>
-        <Text fontWeight={500}>{post.content}</Text>
+        <Text fontWeight={500}>
+          <Prose>
+            <Remark>{post.content}</Remark>
+          </Prose>
+        </Text>
       </CardBody>
       <CardFooter
         justify="space-between"
