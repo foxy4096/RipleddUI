@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import defaultBannerImage from "../asset/default-banner.png";
 import {
   Avatar,
   Button,
@@ -10,16 +11,55 @@ import {
   Text,
   Wrap,
 } from "@chakra-ui/react";
-import { FaUser, FaUserPlus } from "react-icons/fa";
+import { FaUserPlus } from "react-icons/fa";
 import { MdOutlineCheck } from "react-icons/md";
+import FollowerModal from "./FollowerModal";
 
 const tuser = {
   name: "Valery D.",
   username: "valerydremov",
   bio: "Founder of this place",
   verified: true,
-  followers: 36,
+  followersCount: 36,
   isFollowedByCurrentUser: false,
+  followers: [
+    {
+      id: 24,
+      name: "Ripledd",
+      followersCount: 24,
+      bio: "You're Fantastic!",
+      username: "ripledd",
+      avatar:
+        "https://ripledd.com/profile/avatar/e12cc2c46dd45dd31f67bd45b0f2b816972886107075.jpeg",
+    },
+    {
+      id: 25,
+      name: "Aditya",
+      followersCount: 24,
+      bio: "You're Fantastic!",
+      username: "foxy4096",
+      avatar:
+        "https://ripledd.com/profile/avatar/b793dcb3a5c7ec67d0200d910eb3c017058564617055.jpeg",
+    },
+    {
+      id: 26,
+      name: "Nathen",
+      followersCount: 24,
+      bio: "You're Fantastic!",
+      username: "nyxianonroids",
+      avatar:
+        "https://ripledd.com/profile/avatar/6ad18075b252aa124cb903e78f066417041293356668.jpeg",
+    },
+    {
+      id: 27,
+      name: "4our",
+      followersCount: 24,
+      bio: "You're Fantastic!",
+      username: "4our",
+      avatar:
+        "https://ripledd.com/profile/avatar/446c0b3b98e6f7fa3e1248a710d58916977864218967.jpeg",
+    },
+  ],
   joined: "Oct 18, '22",
   headerImage:
     "https://ripledd.com/profile/banner/e5242c6fae34fe161affad92144e0017041160909791.jpeg",
@@ -40,7 +80,14 @@ export default function MiniUserCard() {
         "0 1px 3px 0 rgba(0, 0, 0, 0.1),0 1px 2px 0 rgba(0, 0, 0, 0.06)",
       ]}
     >
-      <Image src={tuser.headerImage} w={700} borderTopRadius={"inherit"} />
+      <Image
+        src={tuser.headerImage}
+        w={700}
+        borderTopRadius={"inherit"}
+        aspectRatio={"16/5"}
+        fallbackSrc={defaultBannerImage}
+        backgroundSize={"auto"}
+      />
       <CardBody padding={"10px"}>
         <Wrap>
           <Avatar
@@ -49,6 +96,7 @@ export default function MiniUserCard() {
             name={tuser.name}
             borderRadius={"10px"}
             bg={"black"}
+            textColor={"white"}
             src={tuser.avatar}
             border={"3px white solid"}
             _dark={{
@@ -79,6 +127,7 @@ export default function MiniUserCard() {
               colorScheme="green"
               onClick={() => {
                 setIsFollowedByCurrentUser(false);
+                tuser.followersCount--;
               }}
             >
               Following
@@ -88,20 +137,19 @@ export default function MiniUserCard() {
               colorScheme="blue"
               rightIcon={<FaUserPlus />}
               _dark={{ color: "black" }}
-              bgGradient={"linear(to-r, #fd4ba4, #9a87f4, #67c8ff, #7dffc1)"}
+              bgGradient={"linear(to-r, green.400, blue.500)"}
               _hover={{
-                bgGradient: "linear(to-r, #fd4ba6, #9a87f9, #67c8f6, #7affc6)",
+                bgGradient: "linear(to-r, green.500, blue.600)",
               }}
               onClick={() => {
                 setIsFollowedByCurrentUser(true);
+                tuser.followersCount++;
               }}
             >
               Follow
             </Button>
           )}
-          <Button leftIcon={<FaUser />} variant={"outline"}>
-            {tuser.followers}
-          </Button>
+          <FollowerModal tuser={tuser} />
         </Wrap>
       </CardBody>
     </Card>

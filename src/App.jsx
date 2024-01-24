@@ -3,6 +3,7 @@ import TrendingCard from "./components/TrendingCard";
 import PostBlock from "./components/PostBlock";
 import { Box, Button, Center, Flex } from "@chakra-ui/react";
 import MiniUserCard from "./components/MiniUserCard";
+import CreatePost from "./CreatePost";
 
 let posts = [
   {
@@ -42,8 +43,9 @@ let posts = [
     hasUserReposted: true,
   },
   {
-    id: 2,
-    content: "## Meme Go Burr \n > Block Quotes \n \n![Goofy Image](https://preview.redd.it/hey-ive-seen-this-one-before-v0-9f786u1dxtdc1.jpeg?width=1080&crop=smart&auto=webp&s=e72f607026afa5bebfe4ddd4c5b5143dfe50fa76)",
+    id: 3,
+    content:
+      "## Meme Go Burr \n > Block Quotes \n \n![Goofy Image](https://preview.redd.it/hey-ive-seen-this-one-before-v0-9f786u1dxtdc1.jpeg?width=1080&crop=smart&auto=webp&s=e72f607026afa5bebfe4ddd4c5b5143dfe50fa76)",
     lits: 5,
     views: 42,
     comments: 4,
@@ -62,9 +64,10 @@ let posts = [
 function App({ user }) {
   return (
     <div>
-      <TrendingCard />
+      {!user && <TrendingCard />}
       <Flex wrap={"wrap-reverse"} px={[0, 0, 20, 20, "16em"]} columnGap={6}>
         <Box flex={8} mt={0}>
+          {user && <CreatePost />}
           {posts.map((post) => (
             <PostBlock post={post} key={post.id} />
           ))}

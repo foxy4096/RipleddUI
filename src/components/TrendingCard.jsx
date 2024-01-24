@@ -71,6 +71,7 @@ export default function TrendingCard() {
                 <Avatar
                  borderRadius={"10%"}
                   src={image.user.avatar}
+                  name={image.user.name}
                   rounded={"10%"}
                   boxSize={10}
                   position={"relative"}

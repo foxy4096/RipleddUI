@@ -8,7 +8,7 @@ import {
 import { FaRegComment } from "react-icons/fa";
 
 import { RxLoop } from "react-icons/rx";
-import { Prose } from "@nikolovlazar/chakra-ui-prose";
+// import { Prose } from "@nikolovlazar/chakra-ui-prose";
 
 import {
   Avatar,
@@ -34,7 +34,7 @@ import { FaFire } from "react-icons/fa";
 
 import { HiDotsVertical } from "react-icons/hi";
 import { useState } from "react";
-import { Remark } from "react-remark";
+// import { Remark } from "react-remark";
 
 export default function PostBlock({ post }) {
   const [lits, setLits] = useState(post.lits);
@@ -82,6 +82,7 @@ export default function PostBlock({ post }) {
           </Menu>
         </Flex>
       </CardHeader>
+      <CardBody>
       {post.imageUrl && (
         <Image
           p={6}
@@ -90,12 +91,7 @@ export default function PostBlock({ post }) {
           alt="Post Image 🖼"
         />
       )}
-      <CardBody>
-        <Text fontWeight={500}>
-          <Prose>
-            <Remark>{post.content}</Remark>
-          </Prose>
-        </Text>
+        
       </CardBody>
       <CardFooter
         justify="space-between"

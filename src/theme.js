@@ -3,9 +3,10 @@ import { mode } from "@chakra-ui/theme-tools";
 import { cardTheme } from "./components/CardTheme";
 import { menuTheme } from "./components/menuTheme";
 import { withProse } from "@nikolovlazar/chakra-ui-prose";
+import { modalTheme } from "./components/ModalTheme";
 
 const config = {
-  initialColorMode: "light",
+  initialColorMode: "system",
   useSystemColorMode: true,
 };
 
@@ -29,6 +30,7 @@ const theme = extendTheme(
     components: {
       Card: cardTheme,
       Menu: menuTheme,
+      Modal: modalTheme,
     },
   },
   withProse()
