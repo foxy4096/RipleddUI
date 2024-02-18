@@ -14,12 +14,12 @@ import {
   Wrap,
   Divider,
   Heading,
-  Image,
   Text,
   Center,
   Spacer,
 } from "@chakra-ui/react";
 import { FaUser } from "react-icons/fa";
+import { MdVerified } from "react-icons/md";
 
 export default function FollowerModal({ tuser }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -49,7 +49,6 @@ export default function FollowerModal({ tuser }) {
                     <Avatar
                       boxSize={"50px"}
                       name={follower.name}
-                      borderRadius={"10px"}
                       bg={"black"}
                       textColor={"white"}
                       src={follower.avatar}
@@ -62,10 +61,7 @@ export default function FollowerModal({ tuser }) {
                       <Heading size={["sm", "md"]}>
                         <Wrap>
                           {follower.name}
-                          <Image
-                            src="https://ripledd.com/img/verified.png"
-                            boxSize={"5"}
-                          />
+                          <MdVerified/>
                         </Wrap>
                       </Heading>
                       <Text color={"blue.300"} fontSize={"sm"}>

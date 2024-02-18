@@ -3,12 +3,13 @@ import {
   MdOutlineReport,
   MdDeleteOutline,
   MdOutlineShare,
+  MdVerified,
 } from "react-icons/md";
 
 import { FaRegComment } from "react-icons/fa";
 
 import { RxLoop } from "react-icons/rx";
-// import { Prose } from "@nikolovlazar/chakra-ui-prose";
+import { Prose } from "@nikolovlazar/chakra-ui-prose";
 
 import {
   Avatar,
@@ -34,7 +35,7 @@ import { FaFire } from "react-icons/fa";
 
 import { HiDotsVertical } from "react-icons/hi";
 import { useState } from "react";
-// import { Remark } from "react-remark";
+import { Remark } from "react-remark";
 
 export default function PostBlock({ post }) {
   const [lits, setLits] = useState(post.lits);
@@ -46,20 +47,12 @@ export default function PostBlock({ post }) {
       <CardHeader>
         <Flex spacing="4">
           <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
-            <Avatar
-              name={post.user.name}
-              src={post.user.avatar}
-              borderRadius={"10%"}
-            />
+            <Avatar name={post.user.name} src={post.user.avatar} />
 
             <Box>
               <Heading size="sm">
                 <Wrap>
-                  {post.user.name}{" "}
-                  <Image
-                    src="https://ripledd.com/img/verified-contributor.png"
-                    boxSize={"5"}
-                  />
+                  {post.user.name} <MdVerified />
                 </Wrap>
               </Heading>
               <Text fontSize={"smaller"}>
@@ -82,16 +75,19 @@ export default function PostBlock({ post }) {
           </Menu>
         </Flex>
       </CardHeader>
-      <CardBody>
-      {post.imageUrl && (
-        <Image
-          p={6}
-          src={post.imageUrl}
-          borderRadius={"35px"}
-          alt="Post Image 🖼"
-        />
-      )}
-        
+      <CardBody p={"0px"}>
+        {post.imageUrl && (
+          <Image
+            my={2}
+            fit={"contain"}
+            w={"100%"}
+            src={post.imageUrl}
+            alt="Post Image 🖼"
+          />
+        )}
+        <Prose mx={6} as={"div"}>
+          <Remark>{post.content}</Remark>
+        </Prose>
       </CardBody>
       <CardFooter
         justify="space-between"

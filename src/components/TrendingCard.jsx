@@ -1,10 +1,12 @@
 import { Avatar, Box, Center, Flex, Image, Text } from "@chakra-ui/react";
-export default function TrendingCard() {
+
+
+const TrendingCard = () => {
   const images = [
     {
       id: 1,
       imageUrl:
-        "https://ripledd.com/posters/14c7d22e6bf590a925f53b7af27d9a16850204889184.jpeg",
+        "https://images.pexels.com/photos/20161587/pexels-photo-20161587/free-photo-of-aerial-view-of-a-farm-with-green-fields.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
       lits: 5,
       views: 42,
       user: {
@@ -15,7 +17,7 @@ export default function TrendingCard() {
     {
       id: 2,
       imageUrl:
-        "https://ripledd.com/posters/7f3ebfc27b917fce74e8b4686b0dfa16629608682578.jpeg",
+        "https://images.pexels.com/photos/20204362/pexels-photo-20204362/free-photo-of-ashville-appalachian-mountains-north-carolina.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
       lits: 5,
       views: 42,
       user: {
@@ -27,7 +29,7 @@ export default function TrendingCard() {
     {
       id: 3,
       imageUrl:
-        "https://ripledd.com/posters/00d88e5f4d80f8d8c86e98c0089a0716732136291513.jpeg",
+        "https://images.pexels.com/photos/18189590/pexels-photo-18189590/free-photo-of-red-panda-sitting-on-a-cut-tree-trunk.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
       lits: 5,
       views: 42,
       user: {
@@ -39,19 +41,19 @@ export default function TrendingCard() {
     {
       id: 4,
       imageUrl:
-        "https://ripledd.com/posters/ebfbb7fbb7fb19387ad0d76c43ead317046013178940.jpeg",
+        "https://images.pexels.com/photos/16802923/pexels-photo-16802923/free-photo-of-staircase-in-a-modern-building.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
       lits: 5,
       views: 42,
       user: {
         name: "SneakPeek",
         avatar:
-          "https://ripledd.com/profile/avatar/63b3e25924f3ad499cfbb5bf959da617042101114855.jpeg",
+          "https://images.pexels.com/users/avatars/405355698/jari-van-de-vel-867.jpeg?auto=compress&fit=crop&h=40&w=40&dpr=1",
       },
     },
     {
       id: 5,
       imageUrl:
-        "https://ripledd.com/posters/bb21cd6bd3069880479a16fcc1714416756267313249.jpeg",
+        "https://images.pexels.com/photos/17165552/pexels-photo-17165552/free-photo-of-close-up-of-pancakes-with-fruit.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
       lits: 5,
       views: 42,
       user: {
@@ -69,7 +71,7 @@ export default function TrendingCard() {
             <Box my={-12} mx={2} zIndex={10} position={"relative"}>
               <Flex gap={2}>
                 <Avatar
-                 borderRadius={"10%"}
+                  borderRadius={"10%"}
                   src={image.user.avatar}
                   name={image.user.name}
                   rounded={"10%"}
@@ -104,4 +106,6 @@ export default function TrendingCard() {
       </Flex>
     </Center>
   );
-}
+};
+
+export default TrendingCard;

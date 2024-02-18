@@ -13,7 +13,7 @@ const baseStyle = definePartsStyle({
     },
   },
   header: {
-    paddingBottom: "2px",
+    marginBottom: "2px",
   },
   body: {
     paddingTop: "2px",

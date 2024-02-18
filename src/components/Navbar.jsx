@@ -22,6 +22,7 @@ import ripleddMobileLogoDark from "../asset/ripledd_logo_dark_mobile.png";
 import { SearchIcon } from "@chakra-ui/icons";
 import Toggle from "./Toggle";
 import {
+  MdAdd,
   MdOutlineComment,
   MdOutlineEdit,
   MdOutlineLogout,
@@ -29,14 +30,15 @@ import {
   MdOutlineWifi,
 } from "react-icons/md";
 import { userTemplate } from "../userTemplate";
+import { Link } from "react-router-dom";
 
-function Navbar({user, setUser}) {
+function Navbar({ user, setUser }) {
   return (
     <Box
       px={30}
       py={"5px"}
       top={0}
-      mb={["0px", "10px"]}
+      mb={0}
       position={"static"}
       boxSize={"full"}
       pos={"relative"}
@@ -46,39 +48,42 @@ function Navbar({user, setUser}) {
       }}
     >
       <Flex minWidth={"max-content"} alignItems={"center"}>
-        <Image
-          src={ripleddDesktopLogoLight}
-          w={150}
-          _dark={{ display: "none" }}
-          display={"block"}
-          objectFit="contain"
-          alt="Ripledd Logo"
-          hideBelow={"md"}
-        />
-        <Image
-          src={ripleddMobileLogoLight}
-          w={10}
-          _dark={{ display: "none" }}
-          hideFrom={"md"}
-          objectFit="contain"
-          alt="Ripledd Logo"
-        />
-        <Image
-          src={ripleddDesktopLogoDark}
-          w={150}
-          _light={{ display: "none" }}
-          objectFit="contain"
-          alt="Ripledd Logo"
-          hideBelow={"md"}
-        />
-        <Image
-          src={ripleddMobileLogoDark}
-          _light={{ display: "none" }}
-          w={10}
-          hideFrom={"md"}
-          objectFit="contain"
-          alt="Ripledd Logo"
-        />
+        <Link to={"/"}>
+          <Image
+            src={ripleddDesktopLogoLight}
+            w={150}
+            _dark={{ display: "none" }}
+            display={"block"}
+            objectFit="contain"
+            alt="Ripledd Logo"
+            hideBelow={"md"}
+          />
+          <Image
+            src={ripleddMobileLogoLight}
+            w={10}
+            _dark={{ display: "none" }}
+            hideFrom={"md"}
+            objectFit="contain"
+            alt="Ripledd Logo"
+          />
+          <Image
+            src={ripleddDesktopLogoDark}
+            w={150}
+            _light={{ display: "none" }}
+            objectFit="contain"
+            alt="Ripledd Logo"
+            hideBelow={"md"}
+          />
+          <Image
+            src={ripleddMobileLogoDark}
+            _light={{ display: "none" }}
+            w={10}
+            hideFrom={"md"}
+            objectFit="contain"
+            alt="Ripledd Logo"
+          />
+        </Link>
+
         <Spacer hideFrom={["md"]} />
         <InputGroup mx={2} hideBelow={["md"]} w={"50"} size={"lg"}>
           <Input
@@ -101,13 +106,18 @@ function Navbar({user, setUser}) {
         <Spacer />
         {user ? (
           <ButtonGroup gap={"1"} size={["sm", "md"]}>
+            <Link to={'/create-post/'}>
+            <Button rightIcon={<MdAdd/>} variant={"ghost"}>New Post</Button>
+            </Link>
             <Toggle />
             <Menu>
               <MenuButton as={Button} variant={"link"}>
-                <Avatar src={user.avatar} size={"sm"} borderRadius={"10%"} />
+                <Avatar src={user.avatar} size={"sm"} />
               </MenuButton>
               <MenuList>
-                <MenuItem icon={<MdOutlineEdit />}>Edit Profile</MenuItem>
+                <Link to={"/user-profile/"}>
+                  <MenuItem icon={<MdOutlineEdit />}>Edit Profile</MenuItem>
+                </Link>
                 <MenuItem icon={<MdOutlineWifi />}>My Channels</MenuItem>
                 <MenuItem icon={<MdOutlineThumbUp />}>Liked Content</MenuItem>
                 <MenuItem icon={<MdOutlineComment />}>My Comments</MenuItem>
