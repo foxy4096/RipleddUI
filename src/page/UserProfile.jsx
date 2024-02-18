@@ -13,7 +13,6 @@ import { FaUserPlus } from "react-icons/fa";
 import { MdOutlineCheck, MdVerified } from "react-icons/md";
 import FollowerModal from "../components/FollowerModal";
 import { useState } from "react";
-import 'animate.css';
 
 
 const tuser = {
@@ -134,7 +133,6 @@ const UserProfile = () => {
           ) : (
             <Button
               colorScheme="blue"
-              className="animate__bounce"
               rightIcon={<FaUserPlus />}
               _dark={{ color: "black" }}
               bgGradient={"linear(to-r, green.400, blue.500)"}
