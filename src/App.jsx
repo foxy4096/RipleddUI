@@ -22,10 +22,7 @@ function App() {
           path: "/",
           element: <RootLayout user={user} />,
         },
-        {
-          path: "/center",
-          element: <CenterPage />,
-        },
+
         {
           path: "/user-profile/",
           element: <UserProfile />,
@@ -35,6 +32,10 @@ function App() {
           element: <CreatePost />,
         },
       ],
+    },
+    {
+      path: "/center/",
+      element: <CenterPage user={user} setUser={setUser} />,
     },
   ]);
   router.subscribe(() => {
@@ -46,7 +47,17 @@ function App() {
   });
   return (
     <>
-      {isLoading && <Progress size="xs" top={0} zIndex={30} position={"fixed"} left={0} right={0} isIndeterminate />}
+      {isLoading && (
+        <Progress
+          size="xs"
+          top={0}
+          zIndex={30}
+          position={"fixed"}
+          left={0}
+          right={0}
+          isIndeterminate
+        />
+      )}
       <RouterProvider router={router} />
     </>
   );

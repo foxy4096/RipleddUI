@@ -83,7 +83,7 @@ export default function PostBlock({ post }) {
             w={"100%"}
             src={post.imageUrl}
             alt="Post Image 🖼"
-          />
+            />
         )}
         <Prose mx={6} as={"div"}>
           <Remark>{post.content}</Remark>

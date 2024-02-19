@@ -68,40 +68,42 @@ const RootLayout = ({ user }) => {
       <Flex wrap={"wrap"} px={[0, 0, 20, 20, "16em"]} columnGap={6}>
         <Box flex={8} mt={0}>
           <Center>
-            <ButtonGroup spacing={2} py={3}>
+            <ButtonGroup spacing={2} py={3} size={["xs", "sm"]}>
               <Button
-                rounded={"full"}
-                variant={"outline"}
                 rightIcon={<MdRssFeed />}
+                colorScheme="cyan"
+                rounded={"full"}
               >
                 Subscriptions
               </Button>
               <Button
-                rounded={"full"}
-                variant={"outline"}
+                colorScheme="yellow"
                 rightIcon={<AiOutlineRise />}
+                rounded={"full"}
               >
                 Now Rising
               </Button>
-              <Button
-                px={5}
-                rightIcon={<MdRocketLaunch />}
-                rounded={"full"}
-                _light={{
-                  _hover: {
+              <Link to={"/center/"}>
+                <Button
+                  px={5}
+                  rounded={"full"}
+                  colorScheme="purple"
+                  rightIcon={<MdRocketLaunch />}
+                  _light={{
+                    _hover: {
+                      color: "white",
+                    },
+                  }}
+                  _hover={{
                     color: "white",
-                  },
-                }}
-                variant={"outline"}
-                _hover={{
-                  bgGradient: "linear(to-r, pink.500, blue.600)",
-                  boxShadow: "0px 0px 50px 1px #2B6CB0",
-                  borderColor: "#ffffff00",
-                  transform: "translate(0, -3px)",
-                }}
-              >
-                <Link to={"/center/"}>Center</Link>
-              </Button>
+                    bgGradient: "linear(to-r, pink.500, blue.600)",
+                    boxShadow: "0px 0px 50px 1px #2B6CB0",
+                    transform: "translate(0, -3px)",
+                  }}
+                >
+                  Center
+                </Button>
+              </Link>
             </ButtonGroup>
           </Center>
           {posts.map((post) => (
