@@ -5,6 +5,7 @@ import SideBlock from "./SideBlock";
 import { MdRocketLaunch, MdRssFeed } from "react-icons/md";
 import { AiOutlineRise } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { TailSpin } from "react-loader-spinner";
 let posts = [
   {
     id: 1,
@@ -109,11 +110,15 @@ const RootLayout = ({ user }) => {
           {posts.map((post) => (
             <PostBlock post={post} key={post.id} />
           ))}
+          <Center>
+            <TailSpin  color={'#4299E1'} width={40} />
+          </Center>
         </Box>
         <Box flex={4} mt={16}>
-          <SideBlock />
+          <SideBlock tuser={user} />
         </Box>
       </Flex>
+
       <Center>
         <Box
           rounded="lg"

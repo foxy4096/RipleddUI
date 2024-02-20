@@ -9,6 +9,7 @@ const CenterPage = ({ user, setUser }) => {
         <CenterPageNavbar user={user} setUser={setUser} />
         <Flex ml={"25px"} alignItems={"center"} gap={"12em"} w={"95%"}>
           <Text
+          as={'div'}
             color={"white"}
             textShadow={"-3px 7px black"}
             textAlign={"left"}

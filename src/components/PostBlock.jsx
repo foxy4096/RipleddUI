@@ -28,10 +28,10 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  Text,
   Wrap,
 } from "@chakra-ui/react";
 import { FaFire } from "react-icons/fa";
+import { Link as RouterLink } from "react-router-dom";
 
 import { HiDotsVertical } from "react-icons/hi";
 import { useState } from "react";
@@ -43,7 +43,7 @@ export default function PostBlock({ post }) {
   const [comments, setComments] = useState(post.comments);
 
   return (
-    <Card borderRadius={[0, 0, 10]} mb={["0", "3"]}>
+    <Card borderRadius={[0, 0, 10]} my={["0", "3"]}>
       <CardHeader>
         <Flex spacing="4">
           <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
@@ -55,9 +55,9 @@ export default function PostBlock({ post }) {
                   {post.user.name} <MdVerified />
                 </Wrap>
               </Heading>
-              <Text fontSize={"smaller"}>
-                <Link color={"blue.500"}>@{post.user.username}</Link>
-              </Text>
+              <Link fontSize={"smaller"} color={'blue.500'}>
+                <RouterLink to={'/user-profile/'} color={"blue.500"}>@{post.user.username}</RouterLink>
+              </Link>
             </Box>
           </Flex>
           <Menu>

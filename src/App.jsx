@@ -8,6 +8,8 @@ import RootLayout from "./components/RootLayout";
 import CreatePost from "./page/CreatePost";
 import CenterPage from "./page/CenterPage";
 import { Progress } from "@chakra-ui/react";
+import LogIn from "./page/LogIn";
+import SignUp from "./page/SignUp";
 
 function App() {
   const [user, setUser] = useState(userTemplate);
@@ -25,12 +27,14 @@ function App() {
 
         {
           path: "/user-profile/",
-          element: <UserProfile />,
+          element: <UserProfile tuser={user}/>,
         },
         {
           path: "/create-post/",
           element: <CreatePost />,
         },
+        {path: "/log-in/", element: <LogIn/>},
+        {path: "/sign-up/", element: <SignUp/>},
       ],
     },
     {
