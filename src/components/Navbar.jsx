@@ -105,7 +105,7 @@ function Navbar({ user, setUser }) {
         </InputGroup>
         <Spacer />
         {user ? (
-          <ButtonGroup gap={"1"} size={["sm", "md"]}>
+          <ButtonGroup gap={"1"}>
             <Link to={'/create-post/'}>
             <Button rightIcon={<MdAdd/>} variant={"ghost"}>New Post</Button>
             </Link>

@@ -27,7 +27,7 @@ export default function FollowerModal({ tuser }) {
   return (
     <>
       <Button leftIcon={<FaUser />} onClick={onOpen} variant={"outline"}>
-        {tuser.followersCount}
+        {tuser?.followersCount}
       </Button>
       <Modal
         isOpen={isOpen}
@@ -43,7 +43,7 @@ export default function FollowerModal({ tuser }) {
           <ModalCloseButton />
           <ModalBody mt={3}>
             <List spacing={4}>
-              {tuser.followers.map((follower) => (
+              {tuser && tuser?.followers?.map((follower) => (
                 <ListItem key={follower.id}>
                   <Wrap gap={3}>
                     <Avatar

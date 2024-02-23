@@ -12,6 +12,7 @@ import { RxLoop } from "react-icons/rx";
 import { Prose } from "@nikolovlazar/chakra-ui-prose";
 
 import {
+  AspectRatio,
   Avatar,
   Box,
   Button,
@@ -77,13 +78,15 @@ export default function PostBlock({ post }) {
       </CardHeader>
       <CardBody p={"0px"}>
         {post.imageUrl && (
+          <AspectRatio ratio={16/9}>
           <Image
             my={2}
-            fit={"contain"}
+            fit={"scale-down"}
             w={"100%"}
             src={post.imageUrl}
             alt="Post Image 🖼"
             />
+            </AspectRatio>
         )}
         <Prose mx={6} as={"div"}>
           <Remark>{post.content}</Remark>

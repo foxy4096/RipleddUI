@@ -31,7 +31,7 @@ export default function UserCard({
       ]}
     >
       <Image
-        src={tuser.headerImage}
+        src={tuser?.headerImage}
         w={"100%"}
         borderTopRadius={"inherit"}
         aspectRatio={"16/5"}
@@ -42,10 +42,10 @@ export default function UserCard({
         <Avatar
           mt={-16}
           mb={3}
-          name={tuser.name}
-          bg={"black"}
+          name={tuser?.name|| "Willy Wonka"}
+          bg={"blue.500"}
           textColor={"white"}
-          src={tuser.avatar}
+          src={tuser?.avatar}
           size={avatarSize || "2xl"}
           border={"5px white solid"}
           _dark={{
@@ -55,14 +55,14 @@ export default function UserCard({
         <div>
           <Heading size={["sm", "md"]}>
             <Wrap>
-              {tuser.name}
+              {tuser?.name || "Willy Wonka"}
               <MdVerified />
             </Wrap>
           </Heading>
-          <Text color={"blue.300"}>@{tuser.username}</Text>
+          <Text color={"blue.300"}>@{tuser?.username || "wonka"}</Text>
         </div>
         <Text fontSize={"sm"} mt={2}>
-          {tuser.bio}
+          {tuser?.bio}
         </Text>
         <Wrap mt={3}>
           {isFollowedByCurrentUser ? (

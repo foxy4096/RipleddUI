@@ -1,28 +1,28 @@
 import {
+  AbsoluteCenter,
+  Box,
   Button,
   Card,
   CardBody,
   CardHeader,
   Center,
   Container,
+  Divider,
   Heading,
   Image,
   Input,
   InputGroup,
   InputLeftElement,
-  Text,
 } from "@chakra-ui/react";
 import ripleddMobileLogoLight from "../asset/ripledd_logo_light_mobile.png";
 import ripleddMobileLogoDark from "../asset/ripledd_logo_dark_mobile.png";
 import { MdEmail, MdLock } from "react-icons/md";
+import { FcGoogle } from "react-icons/fc";
 
 const LogIn = () => {
   return (
     <>
-      <Card
-        rounded={"none"}
-        h={["100vh"]}
-      >
+      <Card rounded={"none"} h={["100vh"]}>
         <CardHeader>
           <Center>
             <Image
@@ -41,7 +41,7 @@ const LogIn = () => {
             />
           </Center>
           <Center>
-          <Heading size={'md'}>Welcome back</Heading>
+            <Heading size={"lg"}>Welcome back</Heading>
           </Center>
         </CardHeader>
         <CardBody>
@@ -62,10 +62,30 @@ const LogIn = () => {
               w={"100%"}
               bg={"#4299E1"}
               shadow={"xl"}
+              size={"lg"}
               color={"white"}
               _hover={{ bg: "#3182CE" }}
+              borderBottom={"5px #2B6CB0 solid"}
+              _active={{
+                borderBottom: "none",
+              }}
             >
               Log In
+            </Button>
+            <Box position="relative" padding="8">
+              <Divider />
+              <AbsoluteCenter px="4" _dark={{ bg: "black" }} bg={"white"}>
+                Sign Up with Socials
+              </AbsoluteCenter>
+            </Box>
+            <Button
+              size={"lg"}
+              variant={"outline"}
+              colorScheme="blue"
+              leftIcon={<FcGoogle />}
+              w={"100%"}
+            >
+              Login With Google
             </Button>
           </Container>
         </CardBody>

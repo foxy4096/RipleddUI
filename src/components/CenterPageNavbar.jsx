@@ -33,9 +33,9 @@ function CenterPageNavbar({ user, setUser }) {
       mb={0}
       position={"static"}
       boxSize={"full"}
-      background={"transparent"}
+      background={"#866DFF"}
     >
-      <Flex alignItems={"center"} wrap={'wrap-reverse'}>
+      <Flex alignItems={"center"} wrap={"wrap-reverse"}>
         <Link to={"/"}>
           <Image
             src={ripleddDesktopLogoDark}
@@ -56,11 +56,21 @@ function CenterPageNavbar({ user, setUser }) {
         <Spacer hideFrom={["md"]} />
         <Spacer />
         <ButtonGroup variant={"link"} spacing={6}>
-          <Button fontWeight={"800"} color={'white'}>Home</Button>
-          <Button fontWeight={"800"} color={'white'}>Discover</Button>
-          <Button fontWeight={"800"} color={'white'} hideBelow={["md"]}>FAQ</Button>
-          <Button fontWeight={"800"} color={'white'} hideBelow={["md"]}>Terms</Button>
-          <Button fontWeight={"800"} color={'white'} hideBelow={["md"]}>Developer</Button>
+          <Button fontWeight={"800"} color={"white"}>
+            Home
+          </Button>
+          <Button fontWeight={"800"} color={"white"}>
+            Discover
+          </Button>
+          <Button fontWeight={"800"} color={"white"} hideBelow={["md"]}>
+            FAQ
+          </Button>
+          <Button fontWeight={"800"} color={"white"} hideBelow={["md"]}>
+            Terms
+          </Button>
+          <Button fontWeight={"800"} color={"white"} hideBelow={["md"]}>
+            Developer
+          </Button>
         </ButtonGroup>
         <Spacer />
         {user ? (
@@ -91,13 +101,15 @@ function CenterPageNavbar({ user, setUser }) {
           <ButtonGroup gap={"1"} size={["sm", "md"]}>
             <Button
               onClick={() => setUser(userTemplate)}
+              fontWeight={"800"}
+              fontFamily={"arial"}
               bg={"white"}
               color={"#866DFF"}
               _hover={{
                 opacity: 0.8,
               }}
             >
-              <b>Join Ripledd!</b>
+             Join Ripledd!
             </Button>
           </ButtonGroup>
         )}

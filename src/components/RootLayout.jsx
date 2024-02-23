@@ -66,7 +66,7 @@ const RootLayout = ({ user }) => {
   return (
     <>
       {!user && <TrendingCard />}
-      <Flex wrap={"wrap"} px={[0, 0, 20, 20, "16em"]} columnGap={6}>
+      <Flex wrap={"wrap"} px={[0, 10, 30, 20, "8em"]} columnGap={6}>
         <Box flex={8} mt={0}>
           <Center>
             <ButtonGroup spacing={2} py={3} size={["xs", "sm"]}>
@@ -111,12 +111,14 @@ const RootLayout = ({ user }) => {
             <PostBlock post={post} key={post.id} />
           ))}
           <Center>
-            <TailSpin  color={'#4299E1'} width={40} />
+            <TailSpin color={"#4299E1"} width={40} />
           </Center>
         </Box>
-        <Box flex={4} mt={16}>
-          <SideBlock tuser={user} />
-        </Box>
+        {user && (
+          <Box flex={4} mt={16}>
+            <SideBlock tuser={user} />
+          </Box>
+        )}
       </Flex>
 
       <Center>
